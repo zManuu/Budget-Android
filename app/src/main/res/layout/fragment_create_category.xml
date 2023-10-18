@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.createcategory.CreateCategoryFragment">
+
+    <EditText
+        android:id="@+id/cc_input_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:autofillHints="@string/name_of_the_new_category"
+        android:ems="10"
+        android:hint="@string/name_of_the_new_category"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cc_input_targeted_expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints="@string/targeted_expenses_per_month"
+        android:ems="10"
+        android:hint="@string/targeted_expenses_per_month"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cc_input_name" />
+
+    <com.skydoves.colorpickerview.ColorPickerView
+        android:id="@+id/cc_color_picker_primary"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.skydoves.colorpickerview.ColorPickerView
+        android:id="@+id/cc_color_picker_secondary"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cc_color_picker_primary_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/primary_color"
+        app:layout_constraintEnd_toEndOf="@+id/cc_color_picker_primary"
+        app:layout_constraintStart_toStartOf="@+id/cc_color_picker_primary"
+        app:layout_constraintTop_toBottomOf="@+id/cc_color_picker_primary" />
+
+    <TextView
+        android:id="@+id/cc_color_picker_secondary_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/secondary_color"
+        app:layout_constraintEnd_toEndOf="@+id/cc_color_picker_secondary"
+        app:layout_constraintStart_toStartOf="@+id/cc_color_picker_secondary"
+        app:layout_constraintTop_toBottomOf="@+id/cc_color_picker_secondary" />
+
+    <Button
+        android:id="@+id/cc_button_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="@string/create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
