@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="de.manu.budget.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -18,8 +12,14 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="de.manu.budget.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_register_expenses"
+        android:name="de.manu.budget.ui.registerexpenses.RegisterExpensesFragment"
+        android:label="@string/title_register_expenses"
+        tools:layout="@layout/fragment_register_expenses" />
+
+    <fragment
+        android:id="@+id/navigation_create_category"
+        android:name="de.manu.budget.ui.createcategory.CreateCategoryFragment"
+        android:label="@string/title_create_category"
+        tools:layout="@layout/fragment_create_category" />
 </navigation>
