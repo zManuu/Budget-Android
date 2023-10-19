@@ -1,5 +1,6 @@
 package de.manu.budget.ui.createcategory;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,15 +26,15 @@ public class CreateCategoryFragment extends Fragment {
     private static final String LOG_TAG = CreateCategoryFragment.class.getSimpleName();
     private FragmentCreateCategoryBinding binding;
     private SharedViewModel viewModel;
-    private String selectedColorCodePrimary = "#FFFFFF";
-    private String selectedColorCodeSecondary = "#FFFFFF";
+    private int selectedColorCodePrimary = Color.WHITE;
+    private int selectedColorCodeSecondary = Color.WHITE;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         binding = FragmentCreateCategoryBinding.inflate(inflater, container, false);
-        binding.ccColorPickerPrimary.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> this.selectedColorCodePrimary = '#' + envelope.getHexCode());
-        binding.ccColorPickerSecondary.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> this.selectedColorCodeSecondary = '#' + envelope.getHexCode());
+
+        binding.ccColorPickerPrimary.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> this.selectedColorCodePrimary = envelope.getColor());
+        binding.ccColorPickerSecondary.setColorListener((ColorEnvelopeListener) (envelope, fromUser) -> this.selectedColorCodeSecondary = envelope.getColor());
         binding.ccButtonConfirm.setOnClickListener(this::create);
 
         return binding.getRoot();
@@ -99,7 +100,7 @@ public class CreateCategoryFragment extends Fragment {
         super.onDestroyView();
         binding = null;
         viewModel = null;
-        selectedColorCodePrimary = "#FFFFFF";
-        selectedColorCodeSecondary = "#FFFFFF";
+        selectedColorCodePrimary = Color.WHITE;
+        selectedColorCodeSecondary = Color.WHITE;
     }
 }

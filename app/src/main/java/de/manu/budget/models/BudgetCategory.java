@@ -1,16 +1,17 @@
 package de.manu.budget.models;
 
+import java.text.MessageFormat;
 import java.util.UUID;
 
 public class BudgetCategory {
 
-    private UUID uuid;
-    private String name;
-    private int targetExpenses;
-    private String colorPrimary;
-    private String colorSecondary;
+    private final UUID uuid;
+    private final String name;
+    private final int targetExpenses;
+    private final int colorPrimary;
+    private final int colorSecondary;
 
-    public BudgetCategory(UUID uuid, String name, int targetExpenses, String colorPrimary, String colorSecondary) {
+    public BudgetCategory(UUID uuid, String name, int targetExpenses, int colorPrimary, int colorSecondary) {
         this.uuid = uuid;
         this.name = name;
         this.targetExpenses = targetExpenses;
@@ -30,11 +31,12 @@ public class BudgetCategory {
         return targetExpenses;
     }
 
-    public String getColorPrimary() {
+    public int getColorPrimary() {
         return colorPrimary;
     }
 
-    public String getColorSecondary() {
+    public int getColorSecondary() {
         return colorSecondary;
     }
+
 }

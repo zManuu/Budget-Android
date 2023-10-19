@@ -30,7 +30,7 @@ public class DateTimeSerializer implements JsonSerializer<LocalDateTime> {
 
         @Override
         public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-            return (LocalDateTime) formatter.parse(json.getAsString());
+            return LocalDateTime.from(formatter.parse(json.getAsString()));
         }
 
     }

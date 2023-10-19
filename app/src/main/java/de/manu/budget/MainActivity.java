@@ -33,15 +33,17 @@ import java.util.stream.Collectors;
 
 import de.manu.budget.databinding.ActivityMainBinding;
 import de.manu.budget.models.BudgetData;
+import de.manu.budget.models.BudgetSettings;
 import de.manu.budget.utils.serializer.DateTimeSerializer;
 import de.manu.budget.utils.serializer.UUIDSerializer;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
 
+    private static final int DEFAULT_MONTHLY_PAYCHECK = 800;
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
-    private static Gson gson = new GsonBuilder()
+    public static final Gson gson = new GsonBuilder()
             .registerTypeAdapter(UUID.class, new UUIDSerializer())
             .registerTypeAdapter(UUID.class, new UUIDSerializer.Deserializer())
             .registerTypeAdapter(LocalDateTime.class, new DateTimeSerializer())
@@ -49,14 +51,17 @@ public class MainActivity extends AppCompatActivity {
             .setPrettyPrinting()
             .create();
 
-    private ActivityMainBinding binding;
     private SharedViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        viewModel.setDataSaveListener(this::saveData);
+        viewModel.setSharedData(this.loadData());
+
+        de.manu.budget.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration
@@ -66,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
-        viewModel.setDataSaveListener(this::saveData);
-        viewModel.setSharedData(this.loadData());
     }
 
     private void saveData() {
@@ -97,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
         BudgetData defaultData = new BudgetData(
                 new HashSet<>(),
-                new HashSet<>()
+                new HashSet<>(),
+                new BudgetSettings(DEFAULT_MONTHLY_PAYCHECK)
         );
 
         // todo: clean up try-catch hell

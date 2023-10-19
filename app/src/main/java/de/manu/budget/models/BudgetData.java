@@ -4,12 +4,14 @@ import java.util.Set;
 
 public class BudgetData {
 
-    private Set<BudgetCategory> categorySet;
-    private Set<BudgetExpense> expenseSet;
+    private final Set<BudgetCategory> categorySet;
+    private final Set<BudgetExpense> expenseSet;
+    private final BudgetSettings settings;
 
-    public BudgetData(Set<BudgetCategory> categorySet, Set<BudgetExpense> expenseSet) {
+    public BudgetData(Set<BudgetCategory> categorySet, Set<BudgetExpense> expenseSet, BudgetSettings settings) {
         this.categorySet = categorySet;
         this.expenseSet = expenseSet;
+        this.settings = settings;
     }
 
     public Set<BudgetCategory> getCategorySet() {
@@ -18,5 +20,9 @@ public class BudgetData {
 
     public Set<BudgetExpense> getExpenseSet() {
         return expenseSet;
+    }
+
+    public BudgetSettings getSettings() {
+        return settings;
     }
 }

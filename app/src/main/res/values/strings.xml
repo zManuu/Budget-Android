@@ -11,4 +11,14 @@
     <string name="secondary_color">Secondary color</string>
     <string name="information">Information</string>
     <string name="datetime">Date &amp; Time</string>
+    <string name="price_input">… €</string>
+    <string name="price">Price*</string>
+    <string name="category">Category*</string>
+    <string name="date_amp_time"><![CDATA[Date & Time]]></string>
+    <string name="select_date">SELECT DATE</string>
+    <string name="select_time">SELECT TIME</string>
+    <string name="date_display">date display</string>
+    <string name="time_display">time display</string>
+    <string name="dash">/</string>
+    <string name="charts_displaying_data">charts displaying data</string>
 </resources>

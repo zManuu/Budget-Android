@@ -49,5 +49,6 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.github.skydoves:colorpickerpreference:2.0.6")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
 }

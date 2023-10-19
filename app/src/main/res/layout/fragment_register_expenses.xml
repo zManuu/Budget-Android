@@ -6,51 +6,153 @@
     android:layout_height="match_parent"
     tools:context=".ui.registerexpenses.RegisterExpensesFragment">
 
-    <Spinner
-        android:id="@+id/re_select_category"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/re_header_category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:text="@string/category"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+    <Spinner
+        android:id="@+id/re_spinner_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/re_select_category">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/re_input_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/information"
-            android:textColorHint="#616161" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <EditText
-        android:id="@+id/re_input_datetime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="datetime"
-        android:hint="@string/datetime"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/re_header_category" />
+
+    <TextView
+        android:id="@+id/re_header_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/price"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_spinner_category" />
+
+    <EditText
+        android:id="@+id/re_input_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="string/price_input"
+        android:ems="10"
+        android:hint="@string/price_input"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_header_price" />
+
+    <TextView
+        android:id="@+id/re_header_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/information"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_input_price" />
+
+    <EditText
+        android:id="@+id/re_input_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/information"
+        android:minHeight="48dp"
+        android:textColorHint="#616161"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_header_information"
+        android:autofillHints="information"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/re_header_date_amp_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/date_amp_time"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_input_information" />
+
+    <EditText
+        android:id="@+id/re_display_date"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/date_display"
+        android:autofillHints="date display"
+        android:inputType="date"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_header_date_amp_time" />
+
+    <Button
+        android:id="@+id/re_button_picker_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/select_date"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/re_display_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/re_display_date" />
+
+    <EditText
+        android:id="@+id/re_display_time"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/time_display"
+        android:autofillHints="time display"
+        android:inputType="time"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/re_display_date"
+        app:layout_constraintStart_toStartOf="@+id/re_display_date"
+        app:layout_constraintTop_toBottomOf="@+id/re_display_date" />
+
+    <Button
+        android:id="@+id/re_button_picker_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_time"
+        app:layout_constraintBottom_toBottomOf="@+id/re_display_time"
+        app:layout_constraintEnd_toEndOf="@+id/re_button_picker_date"
+        app:layout_constraintStart_toStartOf="@+id/re_button_picker_date"
+        app:layout_constraintTop_toTopOf="@+id/re_display_time" />
+
+    <Button
+        android:id="@+id/re_button_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/title_register_expenses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/re_display_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
